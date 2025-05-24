@@ -20,6 +20,6 @@ public class hashing_using_hashmap {
         }
         hash=scan.nextInt();
         System.out.println(hash(n, arr, hash));
-        
+        scan.close();   
     }
 }

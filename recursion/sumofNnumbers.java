@@ -1,7 +1,6 @@
-import java.util.Scanner;
+
 public class sumofNnumbers {
     static int sumofNnumbers(int N){
-        int sum;
         if(N==0){return 0;}
         else{return N+sumofNnumbers(N-1);}
     }

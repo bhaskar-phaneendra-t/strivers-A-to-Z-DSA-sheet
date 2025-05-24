@@ -17,6 +17,7 @@ public class hashing_numbers {
         }
         hash=scan.nextInt();
         System.out.println(hash(n, arr, hash));
+        scan.close();
         
     }
 }
