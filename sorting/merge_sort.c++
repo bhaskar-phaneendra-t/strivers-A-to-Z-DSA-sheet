@@ -1,12 +1,12 @@
 #include<iostream>
 #include<vector>
+
 using namespace std;
 
-void merge(int arr[], int low, int mid, int high) {
+void merge(vector<int> &arr, int low, int mid, int high) {
     vector<int> temp;
     int left = low;
     int right = mid + 1;
-
     while (left <= mid && right <= high) {
         if (arr[left] <= arr[right]) {
             temp.push_back(arr[left]);
@@ -16,25 +16,20 @@ void merge(int arr[], int low, int mid, int high) {
             right++;
         }
     }
-
-   
     while (left <= mid) {
         temp.push_back(arr[left]);
         left++;
     }
-
-
     while (right <= high) {
         temp.push_back(arr[right]);
         right++;
     }
-
     for (int i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
 }
 
-void merge_sort(int arr[], int low, int high) {
+void merge_sort(vector<int>& arr, int low, int high) {
     if (low < high) {
         int mid = (low + high) / 2;
         merge_sort(arr, low, mid);
@@ -44,12 +39,13 @@ void merge_sort(int arr[], int low, int high) {
 }
 
 int main() {
-    int n;
+    int n,z;
     cin >> n;
-    int arr[n];
+    vector<int> arr;
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+        cin >> z;
+        arr.push_back(z);
+        }
     merge_sort(arr, 0, n - 1);
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
