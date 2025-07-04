@@ -1,3 +1,5 @@
+package binary_search;
+
 import java.util.*;
 
 public class binary_search {
