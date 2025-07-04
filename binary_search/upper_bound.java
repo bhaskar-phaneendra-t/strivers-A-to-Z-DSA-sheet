@@ -4,18 +4,18 @@ import java.util.*;
 
 public class upper_bound {
     private static int upper_bound_index(ArrayList<Integer> array, int target) {
-        
-        Collections.sort(array);
+        Collections.sort(array); // Ensure the array is sorted
 
         int i = 0;
         int j = array.size() - 1;
-        int ans = array.size(); 
+        int ans = array.size();  
 
         while (i <= j) {
             int mid = (i + j) / 2;
+
             if (array.get(mid) > target) {
-                ans = array.get(mid);    
-                j = mid - 1;   
+                ans = mid;     
+                j = mid - 1;
             } else {
                 i = mid + 1;
             }
@@ -28,16 +28,24 @@ public class upper_bound {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> array = new ArrayList<>();
 
+        System.out.println("Enter the number of elements:");
         int size = scanner.nextInt();
+
+        System.out.println("Enter the elements:");
         for (int i = 0; i < size; i++) {
             array.add(scanner.nextInt());
         }
 
-        System.out.println("Enter the value of the target:");
+        System.out.println("Enter the target value:");
         int target = scanner.nextInt();
 
-        int lbIndex = upper_bound_index(array, target);
-        System.out.println("upper bound index: " + lbIndex);
+        int ubIndex = upper_bound_index(array, target);
+        if (ubIndex == array.size()) {
+            System.out.println("No element greater than target exists.");
+        } else {
+            System.out.println("Upper bound index: " + ubIndex);
+            System.out.println("Upper bound value: " + array.get(ubIndex));
+        }
 
         scanner.close();
     }
